@@ -1,0 +1,90 @@
+#############################################################################
+#                                                                           #
+#                   Autorank 2 Advanced Config                              #
+#                                                                           #
+#   Please use the SimpleConfig unless you know what you are doing and      #
+#   need functionality that the SimpleConfig doesn't provide.               #
+#                                                                           #
+#############################################################################
+
+use advanced config: false
+# all other advanced settings are ignored if this is set to false
+
+afk integration: true
+# If a compatible AFK plugin is found autorank will not count online time for AFK players
+# This option is always on when using the SimpleConfig
+# Currently supports: Essentials
+
+leaderboard layout: '&6&r | &b&p - &7&d day(s), &h hour(s) and &m minute(s).'
+leaderboard length: 5
+# changes the appearance of the /ar leaderboard command
+# &r : Ranking in the leaderboard
+# &p : Player name
+# &m : Minutes (with full days and full hours not counted)
+# &h : Hours (with full days not counted)
+# &d : Days
+# &tm : Total amount of minutes
+# &th : Total amount of hours
+
+language: english
+# Languages available: English, Dutch
+
+
+ranks:
+    guest:
+        requirements:
+            time: 1h
+        results:
+            rank change: guest;member
+            command: 'say &p just got a promotion; broadcast &p has just been promoted to Member!'
+            message: 'Congratulations, you are now a member.'
+    member:
+        requirements:
+            time: 5d
+            exp: 10
+            world: world_nether
+            gamemode: 0
+            has item: 50
+        results:
+            rank change: member;vip
+            command: 'say &p has just been promoted to VIP!; give &p 1 100; tell &p You have just earned 100 stone!'
+            message: 'Congratulations, you are now a vip.'
+            
+# new requirements and results can be added by other plugins that hook into the Autorank API
+# these are the ones that are included in the main plugin:
+# 
+#   requirements:
+#       time: 1d 1h 1m
+#       exp: 20 (level)
+#       money: 2000 (requires vault ! Player has to have at least this amount of money)
+#       world: world_nether (player has to be in this world to get ranked)
+#       gamemode: 1 (player has to have a certain gamemode, 0 = Survival mode, 1 = Creative mode, 2 = Adventure mode)
+#       has item: id(;amount;data) (checks the players inventory for the item)
+#       blocks broken: 100 (a player has to have 100 blocks or more broken) (Requires Stats)
+#       blocks placed: 100 (a player has to have 100 blocks or more placed) (Requires Stats)
+#       votes: 10 (player has to have voted at least 10 times) (Requires Stats and Votifier)
+#   results:
+#       rank change: new-rank
+#       rank change: old-rank; new-rank
+#       rank change: old-rank; new-rank; world (only works for permissions plugins that support this)
+#       message: 'You got ranked up'
+#       command: 'say &p hi; give &p 1 100'(executes a console command. &p will be replaced by the player name) You can perform more commands with the ';' sign.
+#       effect: STEP_SOUND;8 (first argument is the effect name, second is the effect data. For a list of possible effects go to http://jd.bukkit.org/rb/doxygen/d8/db9/enumorg_1_1bukkit_1_1Effect.html)
+#       tp: x;y;z;world;yaw;pitch (tp: 0;0;0;world_nether;1.0;2.0)
+
+sql:
+    enabled: false
+    hostname: localhost:3306
+    username: root
+    password: ''
+    database: minecraft
+    table: autorank
+
+#    
+#    SQL not working yet
+#    
+    
+    
+    
+    
+    
