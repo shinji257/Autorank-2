@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>me.armar.plugins.autorank</groupId>
-  <artifactId>Autorank</artifactId>
+  <artifactId>AutoRank</artifactId>
   <version>2.4.2-beta</version>
   <packaging>jar</packaging>
 
-  <name>Autorank</name>
+  <name>AutoRank</name>
   <url>http://maven.apache.org</url>
 
   <properties>
