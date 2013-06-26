@@ -54,6 +54,7 @@ public class Commands implements CommandExecutor {
 				return true;
 			} else
 	                       sender.sendMessage("Unknown command. Type help for help.");
+                               return true;
 		}
 		String action = args[0];
 		if (action.equalsIgnoreCase("help") && sender.isOp()) {
@@ -113,7 +114,7 @@ public class Commands implements CommandExecutor {
 			return true;
 		} else if (action.equalsIgnoreCase("leaderboard")
 				|| action.equalsIgnoreCase("leaderboards")) {
-			if (!hasPermission("autorank.leaderboard", sender)) {
+			if (!hasPermission("autorank.checkothers", sender)) {
 				return true;
 			}
 			plugin.getLeaderboard().sendLeaderboard(sender);
