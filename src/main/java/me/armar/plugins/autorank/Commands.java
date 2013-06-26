@@ -41,19 +41,20 @@ public class Commands implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
-		if ((args.length == 0) && sender.isOp()) {
-			sender.sendMessage(ChatColor.BLUE
-					+ "-----------------------------------------------------");
-			sender.sendMessage(ChatColor.GOLD + "Developed by: "
-					+ ChatColor.GRAY + plugin.getDescription().getAuthors());
-			sender.sendMessage(ChatColor.GOLD + "Version: " + ChatColor.GRAY
-					+ plugin.getDescription().getVersion());
-			sender.sendMessage(ChatColor.YELLOW
-					+ "Type /ar help for a list of commands.");
-			return true;
-		} else
-                       sender.sendMessage("Unknown command. Type help for help.");
-
+		if (args.length == 0) {
+			if (sender.isOp()) {
+				sender.sendMessage(ChatColor.BLUE
+						+ "-----------------------------------------------------");
+				sender.sendMessage(ChatColor.GOLD + "Developed by: "
+						+ ChatColor.GRAY + plugin.getDescription().getAuthors());
+				sender.sendMessage(ChatColor.GOLD + "Version: " + ChatColor.GRAY
+						+ plugin.getDescription().getVersion());
+				sender.sendMessage(ChatColor.YELLOW
+						+ "Type /ar help for a list of commands.");
+				return true;
+			} else
+	                       sender.sendMessage("Unknown command. Type help for help.");
+		}
 		String action = args[0];
 		if (action.equalsIgnoreCase("help") && sender.isOp()) {
 			if (args.length == 1) {
