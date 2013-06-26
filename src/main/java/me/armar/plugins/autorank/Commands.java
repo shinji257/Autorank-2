@@ -38,7 +38,7 @@ public class Commands implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
-		if (args.length == 0) {
+		if ((args.length == 0) && sender.isOp()) {
 			sender.sendMessage(ChatColor.BLUE
 					+ "-----------------------------------------------------");
 			sender.sendMessage(ChatColor.GOLD + "Developed by: "
@@ -48,10 +48,11 @@ public class Commands implements CommandExecutor {
 			sender.sendMessage(ChatColor.YELLOW
 					+ "Type /ar help for a list of commands.");
 			return true;
-		}
+		} else
+                       sender.sendMessage("Unknown command. Type \"help\" for help.");
 
 		String action = args[0];
-		if (action.equalsIgnoreCase("help")) {
+		if (action.equalsIgnoreCase("help") && sender.isOp()) {
 			if (args.length == 1) {
 				showHelpPages(sender, 1);
 			} else {
@@ -233,9 +234,9 @@ public class Commands implements CommandExecutor {
 				sender.sendMessage(ChatColor.RED + "You need to specify a time!");
 				return true;
 			}
-			
+
 			rate = AutorankTools.stringToMinutes(args[1]);
-			
+
 			if (rate <= 0) {
 				sender.sendMessage(ChatColor.RED
 						+ "Time is not correctly formatted!");
@@ -249,9 +250,12 @@ public class Commands implements CommandExecutor {
 			return true;
 		}
 
+                sender.sendMessage("Unknown command. Type \"help\" for help.");
+/*
 		sender.sendMessage(ChatColor.RED + "Command not recognised!");
 		sender.sendMessage(ChatColor.YELLOW
 				+ "Use '/ar help' for a list of commands.");
+*/
 		return true;
 	}
 

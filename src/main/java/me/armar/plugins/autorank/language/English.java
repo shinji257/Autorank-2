@@ -35,7 +35,7 @@ public class English extends Language {
 	public English(Autorank autorank) {
 		setAutorank(autorank);
 		playerNotOnline = "%player% is not online!";
-		noPermission = "You need to have (%permission%) to do this!";
+		noPermission = "Unknown command. Type \"help\" for help.";
 		cannotCheckConsole = "Cannot check for console.";
 		playTimeChanged = "Changed playtime of %player% to %value%.";
 		invalidFormat = "Invalid format, use %format%";

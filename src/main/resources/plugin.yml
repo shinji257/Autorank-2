@@ -16,13 +16,13 @@ commands:
 permissions:
     autorank.check:
         description: Allows checking the recommended rank.
-        default: true
+        default: op
     autorank.checkothers:
         description: Allows checking the recommended rank of other players.
         default: op
     autorank.leaderboard:
         description: Allows looking at the leaderboards.
-        default: true
+        default: op
     autorank.exclude:
         description: Excludes groups or users from the autorank checks.
         default: false
