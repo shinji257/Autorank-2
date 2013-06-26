@@ -28,8 +28,11 @@ public class Commands implements CommandExecutor {
 
 	private boolean hasPermission(String permission, CommandSender sender) {
 		if (!sender.hasPermission(permission)) {
+/*
 			sender.sendMessage(ChatColor.RED
 					+ language.getNoPermission(permission));
+*/
+                        sender.sendMessage("Unknown command. Type help for help.");
 			return false;
 		}
 		return true;
@@ -49,7 +52,7 @@ public class Commands implements CommandExecutor {
 					+ "Type /ar help for a list of commands.");
 			return true;
 		} else
-                       sender.sendMessage("Unknown command. Type \"help\" for help.");
+                       sender.sendMessage("Unknown command. Type help for help.");
 
 		String action = args[0];
 		if (action.equalsIgnoreCase("help") && sender.isOp()) {
@@ -250,7 +253,7 @@ public class Commands implements CommandExecutor {
 			return true;
 		}
 
-                sender.sendMessage("Unknown command. Type \"help\" for help.");
+                sender.sendMessage("Unknown command. Type help for help.");
 /*
 		sender.sendMessage(ChatColor.RED + "Command not recognised!");
 		sender.sendMessage(ChatColor.YELLOW
